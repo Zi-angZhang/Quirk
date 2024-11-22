@@ -1,82 +1,28 @@
 # <a href="http://algassert.com/quirk">Quirk <img src="doc/favicon.ico" alt="Icon" title="Icon" /></a>
 
-[![Build Status](https://travis-ci.org/Strilanc/Quirk.svg?branch=master)](https://travis-ci.org/Strilanc/Quirk)
+Deploy the [Original Quirk Project](https://github.com/Strilanc/Quirk) to Github Pages using [grunt-gh-pages](https://github.com/tschaub/grunt-gh-pages)
 
-Quirk is a toy quantum circuit simulator, intended to help people in learning about quantum computing.
 
-If you want to quickly explore the behavior of a small quantum circuit, Quirk is the tool for you.
-There's no installing or configuring or scripting: just go to **[algassert.com/quirk](http://algassert.com/quirk)**, drag gates onto the circuit, and the output displays will update in real time.
+## Fork&Clone the Repository
 
-(If you're still trying to understand what a quantum circuit *even is*, then I recommend the video series [Quantum Computing for the Determined](https://www.youtube.com/playlist?list=PL1826E60FD05B44E4).
-Quirk assumes you already know background facts like "each wire represents a qubit".)
+Fork the repository to your own account. It is important because you will need to deploy the project to your own Github Pages. Once you have forked the repository, clone it to your local machine.
 
-**Defining features**:
+## Install Dependencies
 
-- Runs in web browsers.
-- Drag-and-drop circuit editing.
-- Reacts, simulates, and animates in real time.
-- Inline state displays.
-- Bookmarkable / linkable circuits.
-- Up to 16 qubits.
+The dependency Puppeteer is not needed for the deployment to Github Pages. To avoid the potential installation error of Puppeteer, set the environment variable `PUPPETEER_SKIP_CHROMIUM_DOWNLOAD` to `true` before installing the browser toolkit.
 
-**Notable limitations**:
+```bash
+PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm i
+```
 
-- Can't recohere measured qubits (because measurement is implemented as a hack based on the [deferred measurement principle](https://en.wikipedia.org/wiki/Deferred_Measurement_Principle)).
+## Build and Deploy
 
-**Try it out**:
+```bash
+npm run build   # Build the output
+npm run deploy
+```
 
-**[algassert.com/quirk](http://algassert.com/quirk)**
+## Enjoy
 
-# Examples
+Open your github pages. In my case, it is [https://zi-angzhang.github.io/Quirk](https://zi-angzhang.github.io/Quirk)
 
-**Basic usage demo**:
-
-![Demo](/doc/README_Demo.gif)
-
-**Grover search circuit** with chance and sample displays (showing that the chance of success increases):
-
-![Grover search](/doc/README_Grover.gif)
-
-**Quantum teleportation circuit** with Bloch sphere displays (showing that the qubit at the top has ended up at the bottom):
-
-![Quantum teleportation](/doc/README_Teleportation.gif)
-
-# Building
-
-If you want to modify Quirk, this is how you get the code and turn your changes into working html/javascript.
-
-1. Have [git](https://git-scm.com/) and [Node.js](https://nodejs.org/en/download/) installed.
-
-    `sudo add-apt-repository universe`
-    
-    `sudo apt-get update`
-    
-    `sudo apt-get install --yes git npm nodejs-legacy`
-
-2. Clone the repository.
-
-    `git clone https://github.com/Strilanc/Quirk.git`
-
-3. Install the dev dependencies.
-
-    `cd Quirk`
-    
-    `npm install`
-
-4. (*Optional*) Make your changes. Run the tests.
-
-    `npm run test-firefox`
-
-5. Build the output.
-
-    `npm run build`
-
-6. Confirm the output works by opening `out/quirk.html` with a web browser.
-
-    `firefox out/quirk.html`
-
-7. Copy `out/quirk.html` to wherever you want.
-
-# Disclaimer
-
-Quirk is not an official Google product.

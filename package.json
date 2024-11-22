@@ -15,20 +15,22 @@
     "grunt-contrib-concat": "~1.0.1",
     "grunt-contrib-copy": "~1.0.0",
     "grunt-contrib-uglify": "~5.0.0",
+    "grunt-gh-pages": "^4.0.0",
     "grunt-karma": "~4.0.0",
     "grunt-traceur": "~0.5.5",
     "karma": "~5.2.2",
     "karma-chrome-launcher": "~3.1.0",
     "karma-firefox-launcher": "~1.3.0",
-    "traceur": "0.0.111",
-    "puppeteer": "^5.3.0"
+    "puppeteer": "^5.3.0",
+    "traceur": "0.0.111"
   },
   "scripts": {
     "build": "grunt build-src",
     "test": "grunt test",
     "test-chrome": "grunt test-chrome",
     "test-firefox": "grunt test-firefox",
-    "test-travis": "grunt test-travis"
+    "test-travis": "grunt test-travis",
+    "deploy": "grunt gh-pages"
   },
   "repository": {
     "type": "git",

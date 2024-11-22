@@ -153,6 +153,12 @@ module.exports = function(grunt) {
                 from: null,
                 to: null
             }
+        },
+        'gh-pages': {
+            options: {
+                base: 'out'
+            },
+            src: ['**']
         }
     });
 
@@ -186,6 +192,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-traceur');
+    grunt.loadNpmTasks('grunt-gh-pages');
 
     grunt.registerTask('build-src', [
         'clean:clean-tmp',
@@ -193,7 +200,7 @@ module.exports = function(grunt) {
         'bootstrap-get-packages:src/main.js:out/tmp/traceur/bootstrap_post_src/run_main.js',
         'concat:concat-traceur-src',
         'uglify:uglify-concatenated-src',
-        'inject-js-into-html:html/quirk.template.html:out/tmp/minified-src.js:out/quirk.html',
+        'inject-js-into-html:html/quirk.template.html:out/tmp/minified-src.js:out/index.html',
         'clean:clean-tmp'
     ]);
     grunt.registerTask('build-debug', [
