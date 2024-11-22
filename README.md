@@ -24,5 +24,5 @@ npm run deploy
 
 ## Enjoy
 
-Open your github pages. In my case, it is [https://zi-angzhang.github.io/Quirk](https://zi-angzhang.github.io/Quirk)
+Open your github pages. In my case, it is [https://zziangz.github.io/Quirk/](https://zziangz.github.io/Quirk/)
 
